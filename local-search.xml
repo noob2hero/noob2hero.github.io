@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>hexo + github搭建指导</title>
+    <link href="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/"/>
+    <url>/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/</url>
+    
+    <content type="html"><![CDATA[<h3 id="一、hexo依赖环境构建"><a href="#一、hexo依赖环境构建" class="headerlink" title="一、hexo依赖环境构建"></a>一、hexo依赖环境构建</h3><h4 id="1-Git环境安装"><a href="#1-Git环境安装" class="headerlink" title="1. Git环境安装"></a>1. Git环境安装</h4><p><a href="https://git-scm.com/download">git官网</a>下载最新版本，安装完成后在命令提示符中输入如下命令验证是否安装成功。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git --version<br></code></pre></td></tr></table></figure><p>另外，windows自带的cmd很难看，在此小小地推荐下<a href="https://cmder.net/">cmder工具</a>，颜值瞬间提升！</p><h4 id="2-node-js环境安装"><a href="#2-node-js环境安装" class="headerlink" title="2. node.js环境安装"></a>2. node.js环境安装</h4><p><a href="https://nodejs.org/">node.js官网</a>下载最新版本，安装时全部默认，一路点击Next即可；安装完成后在命令提示符中输入如下命令验证是否安装成功。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v<br>npm -v<br></code></pre></td></tr></table></figure><h3 id="二、github基础环境构建"><a href="#二、github基础环境构建" class="headerlink" title="二、github基础环境构建"></a>二、github基础环境构建</h3><h4 id="1-账号注册"><a href="#1-账号注册" class="headerlink" title="1. 账号注册"></a>1. 账号注册</h4><p><a href="https://github.com/">github官网</a>进行账号注册。</p><h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2. 新建仓库"></a>2. 新建仓库</h4><p>请跟随图示往下走：<Br><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_1.jpg"><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_2.jpg"><br>请注意仓库名必须和你的github注册名字相同，如注册名为haha，则仓库名为haha.github.io</Br></p><h3 id="三、hexo正式安装"><a href="#三、hexo正式安装" class="headerlink" title="三、hexo正式安装"></a>三、hexo正式安装</h3><h4 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1. 安装hexo"></a>1. 安装hexo</h4><p>选择或新建一个文件夹，在该文件夹下右键单机鼠标，点击<code>Git Bash Here</code>，并输入如下命令进行hexo安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-cli -g<br></code></pre></td></tr></table></figure><p>安装完成后通过<code>hexo -v</code>确定是否安装成功。<br><br><br>初始化hexo文件夹：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init <br></code></pre></td></tr></table></figure><p>生成静态页面：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br></code></pre></td></tr></table></figure><p>打开本地服务器进行验证：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo s<br></code></pre></td></tr></table></figure><p>输入此命令后会提示登录<a href="http://localhost:4000/">http://localhost:4000/</a>查看hexo本地通路是否正确。</p><h4 id="2-github配置"><a href="#2-github配置" class="headerlink" title="2. github配置"></a>2. github配置</h4><p>通过如下命令配置gitconfig：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;yourname&quot;</span>     <span class="hljs-comment"># github注册名</span><br>git config --global user.email <span class="hljs-string">&quot;youremail&quot;</span>   <span class="hljs-comment"># github注册邮箱</span><br></code></pre></td></tr></table></figure><p>通过如下命令生成ssh rsa key：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;youremail&quot;</span>    <span class="hljs-comment"># 同上步骤中的 github注册邮箱</span><br></code></pre></td></tr></table></figure><p>一路回车，结束后通过如下命令查看rsa 公钥并复制输出的数据（整段复制）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure><p>打开github，进入setting：<br><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_setting.jpg">    <img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_key.jpg"><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_new_key_1.jpg"><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_new_key_2.jpg"></p><p>输入如下命令检测通路是否成功：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com  <span class="hljs-comment"># 注意：此处若有提示输入yes/no等，必须要输入yes继续执行</span><br></code></pre></td></tr></table></figure><h4 id="3-hexo配置"><a href="#3-hexo配置" class="headerlink" title="3. hexo配置"></a>3. hexo配置</h4><p>在hexo目录下打开_config.yml，修改最后几行配置（注意：yourname请换成注册时的名称）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br>  <span class="hljs-built_in">type</span>: git<br>  repository: https://github.com/yourname/yourname.github.io.git<br>  branch: master<br></code></pre></td></tr></table></figure><p>安装deploy_git：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>将本地hexo部署到远端github上：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean  <span class="hljs-comment"># 清楚缓存，如果网页无变换，建议使用此命令</span><br>hexo g      <span class="hljs-comment"># 静态网页生成</span><br>hexo d      <span class="hljs-comment"># 部署到github远端</span><br></code></pre></td></tr></table></figure><p>之后就能通过访问 <a href="https://yourname.github.io/">https://yourname.github.io/</a> 来查看个人博客了!</p><h4 id="4-新建一篇博文"><a href="#4-新建一篇博文" class="headerlink" title="4. 新建一篇博文"></a>4. 新建一篇博文</h4><p>通过如下命令新建文章：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo n <span class="hljs-string">&quot;我的第一篇博文&quot;</span><br></code></pre></td></tr></table></figure><p>此时，在 <code>source\_posts\</code> 目录下会生成 <code>我的第一篇博文.md</code> ，通过markdown撰写博文即可。</p><h4 id="5-远端图片无法显示问题解决"><a href="#5-远端图片无法显示问题解决" class="headerlink" title="5. 远端图片无法显示问题解决"></a>5. 远端图片无法显示问题解决</h4><p>在<code>_config.yml</code>中修改<code>post_asset_folder</code> 为 <code>true</code>，此时<code>hexo n</code>新建博文后会同时创建同名目录，将本地图片文件放入同名目录中；并通过如下命令安装插件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install https://github.com/CodeFalling/hexo-asset-image --save  <span class="hljs-comment"># 注意：此处可能会因为网络问题失败，如果失败多试几次即可！</span><br></code></pre></td></tr></table></figure><p>问题解决！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客搭建</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客搭建</tag>
+      
+      <tag>node.js</tag>
+      
+      <tag>git</tag>
+      
+      <tag>github</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>芯片入门知识扫盲</title>
+    <link href="/2022/05/31/%E8%8A%AF%E7%89%87%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/"/>
+    <url>/2022/05/31/%E8%8A%AF%E7%89%87%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</url>
+    
+    <content type="html"><![CDATA[<p>just for test: <a href="https://learnku.com/articles/2100/blog-from-wordpress-to-hexo">https://learnku.com/articles/2100/blog-from-wordpress-to-hexo</a><br>hahaha</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2022/05/31/hello-world/"/>
+    <url>/2022/05/31/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
