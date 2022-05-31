@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_new_key_1.jpg">
 <meta property="og:image" content="http://example.com/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/github_new_key_2.jpg">
 <meta property="article:published_time" content="2022-05-31T14:04:55.000Z">
-<meta property="article:modified_time" content="2022-05-31T15:57:49.166Z">
+<meta property="article:modified_time" content="2022-05-31T16:03:24.399Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="hexo 个人博客">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.5k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          11 分钟
+          13 分钟
         
       </span>
     
@@ -285,7 +285,7 @@
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br>npm -v<br></code></pre></td></tr></table></figure>
 
 <h3 id="二、github基础环境构建"><a href="#二、github基础环境构建" class="headerlink" title="二、github基础环境构建"></a>二、github基础环境构建</h3><h4 id="1-账号注册"><a href="#1-账号注册" class="headerlink" title="1. 账号注册"></a>1. 账号注册</h4><p><a target="_blank" rel="noopener" href="https://github.com/">github官网</a>进行账号注册。</p>
-<h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2. 新建仓库"></a>2. 新建仓库</h4><p>请跟随图示往下走：<Br><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_1.jpg" srcset="/img/loading.gif" lazyload alt="新建仓库"><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_2.jpg" srcset="/img/loading.gif" lazyload alt="新建仓库"><br>请注意仓库名必须和你的github注册名字相同，如注册名为haha，则仓库名为haha.github.io</Br></p>
+<h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2. 新建仓库"></a>2. 新建仓库</h4><p>请跟随图示往下走：<Br><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_1.jpg" srcset="/img/loading.gif" lazyload><br><img src="/2022/05/31/hexo-github%E6%90%AD%E5%BB%BA%E6%8C%87%E5%AF%BC/create_step_2.jpg" srcset="/img/loading.gif" lazyload><br>请注意仓库名必须和你的github注册名字相同，如注册名为haha，则仓库名为haha.github.io</Br></p>
 <h3 id="三、hexo正式安装"><a href="#三、hexo正式安装" class="headerlink" title="三、hexo正式安装"></a>三、hexo正式安装</h3><h4 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1. 安装hexo"></a>1. 安装hexo</h4><p>选择或新建一个文件夹，在该文件夹下右键单机鼠标，点击<code>Git Bash Here</code>，并输入如下命令进行hexo安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-cli -g<br></code></pre></td></tr></table></figure>
 <p>安装完成后通过<code>hexo -v</code>确定是否安装成功。<br><br><br>初始化hexo文件夹：</p>
@@ -317,6 +317,9 @@
 <h4 id="4-新建一篇博文"><a href="#4-新建一篇博文" class="headerlink" title="4. 新建一篇博文"></a>4. 新建一篇博文</h4><p>通过如下命令新建文章：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo n <span class="hljs-string">&quot;我的第一篇博文&quot;</span><br></code></pre></td></tr></table></figure>
 <p>此时，在 <code>source\_posts\</code> 目录下会生成 <code>我的第一篇博文.md</code> ，通过markdown撰写博文即可。</p>
+<h4 id="5-远端图片无法显示问题解决"><a href="#5-远端图片无法显示问题解决" class="headerlink" title="5. 远端图片无法显示问题解决"></a>5. 远端图片无法显示问题解决</h4><p>在<code>_config.yml</code>中修改<code>post_asset_folder</code> 为 <code>true</code>，此时<code>hexo n</code>新建博文后会同时创建同名目录，将本地图片文件放入同名目录中；并通过如下命令安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install https://github.com/CodeFalling/hexo-asset-image --save  <span class="hljs-comment"># 注意：此处可能会因为网络问题失败，如果失败多试几次即可！</span><br></code></pre></td></tr></table></figure>
+<p>问题解决！</p>
 
               
             </div>
